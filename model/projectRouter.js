@@ -73,5 +73,26 @@ router.get('/:id/tasks', (req, res) => {
         });
 });
 
+/**
+ * POST api/projects/:id/resources
+ */
+router.post('/:id/resources', (req, res) => {
+    const { id: project_id } = req.params;
+    const { resource_id } = req.body;
+    if(!resource_id) {
+        res.status(400).json({ error: "resource_id is required" });
+    }
+    else {
+        model.addResourceToProject(resource_id, project_id)
+            .then(created => {
+                res.status(201).json(created);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({ error: "Something went wrong adding this resource to the project" });
+            });
+    }
+});
+
 
 module.exports = router;

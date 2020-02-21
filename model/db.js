@@ -40,6 +40,6 @@ function getResources() {
 
 // HELPERS
 
-function addResourceToProject(task_id, project_id) {
-    return db('project_resources').insert({ project_id, task_id });
+function addResourceToProject(resource_id, project_id) {
+    return db('project_resources').insert({ project_id, resource_id });
 }
