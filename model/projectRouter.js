@@ -94,5 +94,27 @@ router.post('/:id/resources', (req, res) => {
     }
 });
 
+/**
+ * GET api/projects/:id/combined
+ */
+router.get('/:id/combined', async (req, res) => {
+    const { id: project_id } = req.params;
+    const project = await model.getProjectById(project_id);
+    const tasks = await model.getTasksByProjectId(project_id);
+    const resources = await model.getResourcesByProjectId(project_id);
+
+    res.status(200).json(
+        { 
+            ...project, 
+            tasks: tasks.map(task => ({
+                id: task.id,
+                description: task.description,
+                notes: task.notes,
+                completed: task.completed
+            })),
+            resources
+        });
+});
+
 
 module.exports = router;
