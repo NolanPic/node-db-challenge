@@ -70,6 +70,8 @@ Complete the following tasks:
   - [x] adding tasks.
   - [x] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
 
+  DB DESIGN HERE: https://dbdesigner.page.link/7pSX4ajocbLwfFiNA
+
 ### Entities
 
 A `project` is what needs to be done. We want to store the following data about a `project`:
@@ -98,7 +100,7 @@ A `task` one of the steps needed to complete the project. We want to store the f
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
-Add an endpoint for retrieving a `project` by its `id` that returns an object with the following structure:
+[x] Add an endpoint for retrieving a `project` by its `id` that returns an object with the following structure:
 
 ```js
 {

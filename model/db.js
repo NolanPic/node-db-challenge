@@ -36,7 +36,7 @@ function getTasksByProjectId(project_id) {
     return db('tasks as t')
         .where({ project_id })
         .join('projects as p', 't.project_id', 'p.id')
-        .select('t.*', 'p.name', 'p.description');
+        .select('t.*', 'p.name as project_name', 'p.description as project_description');
 };
 
 function addResource(resource) {
